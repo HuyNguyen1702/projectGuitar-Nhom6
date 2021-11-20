@@ -1,0 +1,27 @@
+.grid-container {
+    display: grid;
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+    grid-template-columns: auto auto;
+    padding: 10px;
+    
+}
+
+.grid-container a{
+    text-decoration: none;
+    color: whitesmoke;
+    
+}
+
+.grid-item {
+    border-radius: 10px;
+    width: 500px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    padding: 70px;
+    font-size: 30px;
+    text-align: center;
+    box-shadow: 0 5px 8px 0 rgba(50, 50, 50, 0.35);
+    -webkit-box-shadow: 0 5px 8px 0 rgba(50, 50, 50, 0.35);
+    -moz-box-shadow: 0 5px 8px 0 rgba(50, 50, 50, 0.35);
+}

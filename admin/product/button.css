@@ -1,0 +1,39 @@
+.add input {
+    outline: none;
+}
+
+.add {
+    box-shadow: 0 5px 8px 0 rgba(50, 50, 50, 0.35);
+    -webkit-box-shadow: 0 5px 8px 0 rgba(50, 50, 50, 0.35);
+    -moz-box-shadow: 0 5px 8px 0 rgba(50, 50, 50, 0.35);
+}
+
+.button-save button {
+    background-color: #0be881;
+}
+
+.button-save button:hover {
+    padding: 13px 19px;
+    background-color: whitesmoke;
+    border: 1px solid #0be881;
+    color: #0be881;
+}
+
+.btn-exit a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.btn-exit button {
+    background-color: #ff5e57;
+}
+
+.btn-exit button:hover {
+    padding: 13px 19px;
+    background-color: whitesmoke;
+    border: 1px solid #ff5e57;
+}
+
+.btn-exit:hover a {
+    color: #ff5e57;
+}

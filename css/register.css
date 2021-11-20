@@ -1,0 +1,145 @@
+.login-social{
+    padding-top: 65px; 
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.login-social button{
+    cursor: pointer;
+    border: none;
+}
+
+.login-social_cnt{
+    padding: 24.5px 0px; 
+    background-color: rgb(241, 241, 241);
+}
+
+.login-social_cnt p{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.login-social_cnt i{
+    font-size: 28px;
+    padding: 10px;
+}
+
+.big-wrap{
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    padding: 12px 0px;
+}
+
+.register {
+    padding: 30px;
+    width: 500px;
+    /* border: 1px solid #ccc; */
+    background: white;
+    /* -webkit-box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.38);
+    box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.38); */
+    line-height: 2;
+}
+
+.vertical{
+    background-color: #ddd;
+    width: 1px;
+    height: 430px;
+}
+
+.login {
+    padding: 30px;
+    width: 500px;
+    /* border: 1px solid #ccc; */
+    background: white;
+    /* -webkit-box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.38);
+    box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.38); */
+    line-height: 2;
+}
+
+/* Full-width input fields */
+
+.register  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f7f7f7;
+}
+
+.login  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f7f7f7;
+}
+
+.register select {
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f7f7f7;
+}
+
+.login select {
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f7f7f7;
+}
+
+.register input[type="text"]:focus, input[type="password"]:focus, input[type="phone"]:focus, select:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for all buttons */
+
+.register button {
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    font-size: 16px;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+}
+
+.register button:hover {
+    opacity: 1;
+}
+
+.login button {
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    font-size: 16px;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+}
+
+.login button:hover {
+    opacity: 1;
+}
+
+/* Change styles for signup button on extra small screens */
+
+@media screen and (max-width: 300px) {
+    .signupbtn {
+        width: 100%;
+    }
+}

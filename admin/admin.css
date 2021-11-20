@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    height: 80px;
+    
+}
+
+.cnt{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.logo span{
+    color: white;
+    font-size: 40px;
+}
+
+.name{
+    padding: 0px 30px;
+}
+
+.in-out{
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.in-out button{
+    background-color: #4CAF50;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logo{
+    margin-left: 15px;
+}
+    
+
+.main{
+    display: flex;
+    justify-content: space-between;
+    height: auto
+}
+
+.nav-small{
+    border: 1px solid #ddd;
+}
+
+.nav-item{
+    padding: 20px;
+}
+
+.nav-item a{
+    text-decoration: none;
+    color: white;
+}
+
+.display-data{
+    color: black;
+    /* position: absolute;
+    top: 10%;
+    left: 25%; */
+}
+
+.pro_img img{
+    width: 55px;
+    height: 55px;
+}
+
+/* ============== ACTION ================= */
+
+.action{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.action input{
+    width: 200px;
+    margin-right: 20px;
+}
+
+.action button{
+    padding: 5px 10px;
+    background-color: black; 
+    border: none;
+    color: white; 
+    font-size: 24px;
+    margin: 0px 10px 0px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}

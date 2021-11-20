@@ -1,0 +1,19 @@
+.pagination{
+    margin-top: 30px;
+}
+
+.pagination a{
+    padding: 6px 10px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.btn-outline-success{
+    width: 15px;
+    height: 15px;
+}
+
+.pagination a{
+    text-decoration: none;
+    color: whitesmoke;
+}

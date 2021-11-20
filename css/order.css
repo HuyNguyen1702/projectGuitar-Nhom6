@@ -1,0 +1,86 @@
+
+.order-big_wrap{
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.vertical{
+    background-color: #ddd;
+    width: 1px;
+    height: 430px;
+}
+
+.address {
+    padding: 30px;
+    width: 700px;
+    /* border: 1px solid #ccc; */
+    background: white;
+    /* -webkit-box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.38);
+    box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.38); */
+    line-height: 2;
+    font-size: 16px;
+    border-bottom: 1px solid rgb(192, 192, 192);
+}
+
+.address-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 15px 0px;
+}
+
+.add-item_sel select{
+    width: 400px;
+    font-size: 16px;
+}
+
+/* Full-width input fields */
+.address  input[type="text"] {
+    width: 400px;
+    padding: 15px;
+    display: inline-block;
+    border: none;
+    background: #f7f7f7;
+    font-size: 16px;
+}
+
+.address select {
+    padding: 15px;
+    display: inline-block;
+    border: none;
+    background: #f7f7f7;
+}
+
+.address input[type="text"]:focus, select:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for all buttons */
+
+.nextStep button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    font-size: 16px;
+    border-radius: 5px;
+    float: right;
+}
+
+.nextStep button:hover {
+    opacity: 1;
+}
+
+/* Change styles for signup button on extra small screens */
+
+@media screen and (max-width: 300px) {
+    .signupbtn {
+        width: 100%;
+    }
+}

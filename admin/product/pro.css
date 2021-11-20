@@ -1,0 +1,131 @@
+.action a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.action input{
+    outline: none;
+}
+
+.btn-primary{
+    padding: 10px 15px;
+    background-color: #0be881;
+    border-radius: 5px;
+}
+
+.btn-primary{
+    padding: 10px 15px;
+    background-color: #0be881;
+    border-radius: 5px;
+}
+
+.btn-primary:hover{
+    padding: 9px 14px;
+    color: #0be881;
+    background-color: whitesmoke;
+    border: 1px solid #0be881;
+}
+
+.btn-secondary{
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #0be881;
+    color: whitesmoke;
+}
+
+.btn-secondary:hover{
+    color: #0be881;
+    background-color: whitesmoke;
+    border: 1px solid #0be881;
+}
+
+.button-edit a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.button-edit{
+    text-align: center;
+    padding: 10px 15px;
+    background-color: #0be881;
+    border-radius: 5px;
+   
+}
+
+.button-edit:hover {
+    padding: 9px 14px;
+    background-color: whitesmoke;
+    border: 1px solid #0be881;
+}
+
+.button-edit:hover a{
+    color: #0be881;
+}
+
+.btn-del a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.btn-del{
+    text-align: center;
+    padding: 10px 15px;
+    background-color: #ff5e57;
+    border-radius: 5px;
+}
+
+.btn-del:hover{
+    padding: 9px 14px;
+    background-color: whitesmoke;
+    border: 1px solid #ff5e57;
+}
+
+.btn-del:hover a{
+    color: #ff5e57;
+}
+
+.pro_des{
+    height: 190px;
+    overflow: auto;
+}
+
+.nav-small{
+    width: 200px; 
+    background-color: #0984e3;
+}
+
+.display-data{
+    width: fit-content; 
+    margin: 50px 50px 30px;
+}
+
+.title span{
+    font-size: 40px;
+    border-bottom: 2px solid #ff5e57;
+}
+
+.in-out a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.in-out button:hover{
+    background-color: #ff5e57;
+}
+
+.nav-item{
+    width: 190px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.nav-item:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ============ FOOTER ============ */
+
+
+
+

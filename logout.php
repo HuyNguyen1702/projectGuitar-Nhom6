@@ -30,6 +30,7 @@ and open the template in the editor.
         <?php
         session_start();
         unset($_SESSION['current_user']);
+        unset($_SESSION['cart']);
         header('Location: index.php');
         ?>
     </body>

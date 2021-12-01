@@ -30,6 +30,7 @@
 </head>
 
 <body>
+
     <?php
     session_start();
     include '../../db.php';
@@ -42,7 +43,7 @@
     $offset = ($current_page - 1) * $item_per_page;
     if ($search) {
         $sql = "SELECT * FROM `tbl_user` WHERE `user_id` LIKE '%" . $search . "%' OR `user_name` LIKE '%" . $search . "%' OR `user_phone` LIKE '%" . $search . "%' OR `user_address` LIKE '%" . $search . "%' OR `user_email` LIKE '%" . $search . "%' OR `user_mode` LIKE '%" . $search . "%'LIMIT " . $item_per_page . " OFFSET " . $offset;
-        $totalRecords = mysqli_query($connect, "SELECT * FROM `tbl_users` WHERE `user_id` LIKE '%" . $search . "%' OR `user_name` LIKE '%" . $search . "%' OR `user_phone` LIKE '%" . $search . "%' OR `user_address` LIKE '%" . $search . "%' OR `user_email` LIKE '%" . $search . "%' OR `user_mode` LIKE '%" . $search . "%'");
+        $totalRecords = mysqli_query($connect, "SELECT * FROM `tbl_user` WHERE `user_id` LIKE '%" . $search . "%' OR `user_name` LIKE '%" . $search . "%' OR `user_phone` LIKE '%" . $search . "%' OR `user_address` LIKE '%" . $search . "%' OR `user_email` LIKE '%" . $search . "%' OR `user_mode` LIKE '%" . $search . "%'");
     } else {
         $sql = "SELECT * FROM tbl_user LIMIT " . $item_per_page . " OFFSET " . $offset;
         $totalRecords = mysqli_query($connect, "SELECT * FROM `tbl_user`");

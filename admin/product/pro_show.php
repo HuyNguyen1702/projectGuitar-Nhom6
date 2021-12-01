@@ -25,19 +25,20 @@
 </head>
 
 <body>
+
     <?php
     session_start();
     include '../../db.php';
     $search = isset($_GET['ten']) ? $_GET['ten'] : "";
     if ($search) {
-        $where = "WHERE 'pro_id' LIKE '%" . $search . "%' OR 'pro_name' LIKE '%" . $search . "%' OR `pro_price` LIKE '%" . $search . "%' OR `pro_status` LIKE '%" . $search . "%' OR `cate_id` LIKE '%" . $search . "%' OR `pro_band` LIKE '%" . $search . "%'";
+        $where = "WHERE 'pro_id' LIKE '%" . $search . "%' OR 'pro_name' LIKE '%" . $search . "%' OR `pro_price` LIKE '%" . $search . "%' OR `pro_number` LIKE '%" . $search . "%' OR `cate_id` LIKE '%" . $search . "%' OR `pro_band` LIKE '%" . $search . "%'";
     }
     $item_per_page = !empty($_GET['per_page']) ? $_GET['per_page'] : 4;
     $current_page = !empty($_GET['page']) ? $_GET['page'] : 1;
     $offset = ($current_page - 1) * $item_per_page;
     if ($search) {
-        $sql = "SELECT * FROM `tbl_product` WHERE `cate_id` LIKE '%" . $search . "%' OR `pro_id` LIKE '%" . $search . "%' OR `pro_name` LIKE '%" . $search . "%' OR `pro_price` LIKE '%" . $search . "%' OR `pro_status` LIKE '%" . $search . "%' OR `pro_band` LIKE '%" . $search . "%'LIMIT " . $item_per_page . " OFFSET " . $offset;
-        $totalRecords = mysqli_query($connect, "SELECT * FROM `tbl_product` WHERE `cate_id` LIKE '%" . $search . "%' OR `pro_name` LIKE '%" . $search . "%' OR `pro_price` LIKE '%" . $search . "%' OR `pro_status` LIKE '%" . $search . "%' OR `pro_band` LIKE '%" . $search . "%' ");
+        $sql = "SELECT * FROM `tbl_product` WHERE `cate_id` LIKE '%" . $search . "%' OR `pro_id` LIKE '%" . $search . "%' OR `pro_name` LIKE '%" . $search . "%' OR `pro_price` LIKE '%" . $search . "%' OR `pro_number` LIKE '%" . $search . "%' OR `pro_band` LIKE '%" . $search . "%'LIMIT " . $item_per_page . " OFFSET " . $offset;
+        $totalRecords = mysqli_query($connect, "SELECT * FROM `tbl_product` WHERE `cate_id` LIKE '%" . $search . "%' OR `pro_name` LIKE '%" . $search . "%' OR `pro_price` LIKE '%" . $search . "%' OR `pro_number` LIKE '%" . $search . "%' OR `pro_band` LIKE '%" . $search . "%' ");
     } else {
         $sql = "SELECT * FROM tbl_product LIMIT " . $item_per_page . " OFFSET " . $offset;
         $totalRecords = mysqli_query($connect, "SELECT * FROM `tbl_product`");
@@ -109,8 +110,9 @@
                             <th>MÃ SẢN PHẨM</th>
                             <th>SẢN PHẨM</th>
                             <th>GIÁ</th>
-                            <th>TRẠNG THÁI</th>
-                            <th>HÌNH ẢNH</th>
+                            <th>Số LƯỢNG</th>
+                            <th>ẢNH ĐẠI DIỆN</th>
+                            <th>ẢNH CHI TIẾT</th>
                             <th>NHÃN HÀNG</th>
                             <th style="width: 500px;">MÔ TẢ</th>
                             <th>THAO TÁC</th>
@@ -139,13 +141,31 @@
                                     <span class="newCost"><?php echo $row['pro_price'] ?></span>
                                 </td>
                                 <td>
-                                    <div class="pro_status">
-                                        <?php echo $row['pro_status'] ?>
+                                    <div class="pro_number">
+                                        <?php echo $row['pro_number'] ?>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="pro_img">
                                         <img src="../../img/product/<?php echo $row['pro_img'] ?>" alt="">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="des_img2">
+                                        <table style="box-shadow :none;">
+                                            <tr>
+                                                <td>
+                                                    <img style="width:55px;" src="../../img/moreInfor/<?php echo $row['pro_img1'] ?>" alt="">
+                                                    <img style="width:55px;" src="../../img/moreInfor/<?php echo $row['pro_img2'] ?>" alt="">
+                                                </td>
+                                                <td>
+                                                    <img style="width:auto; height:50px;" src="../../img/moreInfor/<?php echo $row['pro_img3'] ?>" alt="">
+                                                    <img style="width:auto;  height:50px;" src="../../img/moreInfor/<?php echo $row['pro_img4'] ?>" alt="">
+                                                </td>
+
+                                            </tr>
+                                        </table>
+
                                     </div>
                                 </td>
                                 <td>

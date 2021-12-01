@@ -1,0 +1,101 @@
+.conTaiNer {
+    margin: auto;
+    padding-top: 100px;
+    height: 675px;
+    width: 800px;
+}
+
+.wrapper {
+    padding: 30px;
+    border: 1px solid rgb(184, 184, 184);
+    border-radius: 5px;
+    box-shadow: 0 5px 8px 0 rgba(50, 50, 50, 0.35);
+    -webkit-box-shadow: 0 5px 8px 0 rgba(50, 50, 50, 0.35);
+    -moz-box-shadow: 0 5px 8px 0 rgba(50, 50, 50, 0.35);
+}
+
+.top-title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.left-top_title span {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.right-top_title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.mid-title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    line-height: 2;
+}
+
+.bot-title {
+    font-size: 18px;
+    line-height: 2;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.receipt {
+    padding: 20px 0px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.sub-total {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 18px;
+}
+
+.returnShop{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.returnShop button{
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 5px 10px;
+    background-color: inherit;
+    border: 2px solid black;
+}
+
+.returnShop button:hover{
+    background-color: black;
+    color: whitesmoke;
+}
+
+.returnShop button:hover a{
+    color: whitesmoke;
+}
+
+.returnShop a{
+    text-decoration: none;
+    color: black;
+}

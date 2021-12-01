@@ -17,6 +17,7 @@
 </head>
 
 <body>
+
 <?php
 session_start();
 $user_id = $_GET['user_id'];

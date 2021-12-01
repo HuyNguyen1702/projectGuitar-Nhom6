@@ -10,7 +10,7 @@
     </title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/formLogin.css">
-    <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/newProduct1.css">
     <link rel="stylesheet" href="./css/product-category.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384- fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -30,78 +30,80 @@
             require('./db.php');
             require('./cate.php');
         ?>
-        <div class="header-left">
+         <div class="header-left">
         <a href="index.php"><img src="./img/Logo-White-e1543120531648.png" alt=""></a>
             <div class="sp">
                 <div class="dropdown">
-                   <a href="./product-category.php" style="text-decoration: none; color: whitesmoke;">Đàn Guitar</a> 
+                    <a href="./product-category.php" style="text-decoration: none; color: whitesmoke;">Đàn Guitar</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
-                    <?php while($row = mysqli_fetch_array($cate1)):?>
-                        <a href='#'><?php echo $row['cate_name'] ?></a>
+                        <?php while ($row = mysqli_fetch_array($cate1)) : ?>
+                            <a href='./product-category.php?=<?= $row['cate_id'] ?>'><?php echo $row['cate_name'] ?></a>
+                        <?php endwhile; ?>
+                    </div>
+                </div>
+            </div>
+            <div class="sp">
+                <div class="dropdown" >
+                    <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;"> Nhạc Cụ Khác</a>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
+                        <?php while ($row = mysqli_fetch_array($cate2)) : ?>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
                         <?php endwhile; ?>
                     </div>
                 </div>
             </div>
             <div class="sp">
                 <div class="dropdown">
-                    Nhạc Cụ Khác
+                <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;">Phụ Kiện Guitar</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
-                    <?php while($row = mysqli_fetch_array($cate2)):?>
-                        <a href='#'><?php echo $row['cate_name'] ?></a>
+                        <?php while ($row = mysqli_fetch_array($cate3)) : ?>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
                         <?php endwhile; ?>
                     </div>
                 </div>
             </div>
             <div class="sp">
                 <div class="dropdown">
-                    Phụ Kiện Guitar
+                <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;">Tự học Guitar</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
-                    <?php while($row = mysqli_fetch_array($cate3)):?>
-                        <a href='#'><?php echo $row['cate_name'] ?></a>
+                        <?php while ($row = mysqli_fetch_array($cate4)) : ?>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
                         <?php endwhile; ?>
                     </div>
                 </div>
             </div>
             <div class="sp">
                 <div class="dropdown">
-                    Tự Học Guitar
+                <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;">Hỗ Trợ Khách Hàng</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
-                    <?php while($row = mysqli_fetch_array($cate4)):?>
-                        <a href='#'><?php echo $row['cate_name'] ?></a>
-                        <?php endwhile; ?>
-                    </div>
-                </div>
-            </div>
-            <div class="sp">
-                <div class="dropdown">
-                    Hỗ Trợ Khách Hàng
-                    <i class="fas fa-chevron-down"></i>
-                    <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
-                    <?php while($row = mysqli_fetch_array($cate5)):?>
-                        <a href='#'><?php echo $row['cate_name'] ?></a>
+                        <?php while ($row = mysqli_fetch_array($cate5)) : ?>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
                         <?php endwhile; ?>
                     </div>
                 </div>
             </div>
         </div>
         <div class="header-right">
+            <!-- Account or Logout -->
+            
             <div class="header-right_item">
-            <a href="./register.php">
+                <a href="./register.php" style="text-decoration: none; color: white; font-size: 16px">
                     <button>
                     <?php
                         if(empty($_SESSION['current_user'])){
                             ?>
                             Đăng kí / Đăng nhập
-                            <a href="../login.php">Tai day</a> 
+                            <a style="text-decoration: none; font-size: 18px; color: whitesmoke;" href="../login.php" ></a> 
                             <?php } else {
                          $currentUser = $_SESSION['current_user'];
                         
                         ?>
-                        <a href="logout.php">Xin chào <?= $currentUser['user_name'] ?></a>
+                        <a style="text-decoration: none; font-size: 18px; color: whitesmoke;" href="logout.php">Xin chào <?= $currentUser['user_name'] ?></a>
                         
                         <?php
                         }
@@ -110,7 +112,7 @@
                 </a>
             </div>
             <div class="header-right_item">
-               <a href="cart.php" style="color: whitesmoke;"> <i class="fas fa-shopping-bag"></i> </a> 
+                <a href="./cart.php" style="color: whitesmoke;"> <i class="fas fa-shopping-bag"></i> </a>
             </div>
             <div class="header-right_item" onclick="openNav()">
                 <i class="fas fa-search"></i>
@@ -118,7 +120,7 @@
             <div id="myNav" class="overlay">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="overlay-content">
-                    <input type="text" placeholder="Tìm kiếm..." id="id_text">
+                    <input type="text" placeholder="Tìm kiếm..." id="id_text" style="outline: none;">
                     <button type="submit"><i class="fas fa-search" style="color: whitesmoke;"></i></button>
                 </div>
             </div>
@@ -209,14 +211,31 @@
         </div>
             </div>
                 <div class="product-right_bot">
-                    <div class="addCart">
-                    <form id="add-to-cart-form" action="cart.php?action=add" method="POST" >
-                        <div class="addCart-right">
-                            <input type="text" value="1" name="cart_soluong[<?=$product['pro_id']?>]" size="2"/>
-                            <input type="submit" value="thêm vào giỏ hàng" />
-                        </div>
-                    </form>
-                    </div>
+                    <?php 
+                        if($product['pro_number'] > 0){
+                            ?>
+                            <div class="addCart">
+                            <div class=""><label for="">Tồn kho : </label><?=$product['pro_number']?></div>
+
+                            
+                            <form id="add-to-cart-form" action="cart.php?action=add" method="POST" >
+                                <div class="addCart-right">
+                                    <div class="value">
+                                        <input style="text-align: center;" type="text" value="1" name="cart_soluong[<?=$product['pro_id']?>]" size="2"/>
+                                    </div>
+                                    <div class="add">
+                                        <input type="submit" class="" value="Thêm vào giỏ hàng"/>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+                            <?php
+                        }else {
+                            ?> 
+                            <span>Hết hàng</span>
+                        <?php
+                        } 
+                    ?>
                     <div class="bar"></div>
                     <div class="ship">
                         <button><i class="fas fa-truck fa-flip-horizontal"></i>
@@ -243,8 +262,18 @@
                         <?=$product['pro_des']?>;
                     </div>
                     <div class="img-description">
-                        <img src="./img/moreInfor/<?=$product['pro_img3']?>" alt="" style="width: 762px; height: 1352px;">
-                        <img src="./img/moreInfor/<?=$product['pro_img4']?>" alt="" style="width: 762px; height: 1352px;">
+                        <?php 
+                         if(!empty($product['pro_img3'])){
+                            ?>
+                             <img src="./img/moreInfor/<?=$product['pro_img3']?>" alt="" style="width: 762px; height: 1352px;">
+                             <?php
+                         }
+                         if(!empty($product['pro_img4'])){
+                            ?>
+                             <img src="./img/moreInfor/<?=$product['pro_img4']?>" alt="" style="width: 762px; height: 1352px;">
+                             <?php
+                         }
+                        ?>
                     </div>
                     <!-- <div class="video-demo">
                         <p>Video Demo Thực Tế</p>

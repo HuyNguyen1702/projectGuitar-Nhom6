@@ -10,9 +10,9 @@
     </title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/formLogin.css">
-    <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/newProduct1.css">
     <link rel="stylesheet" href="./css/product-category.css">
-    <link rel="stylesheet" href="./css/cart.css">
+    <link rel="stylesheet" href="./css/newCart.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384- fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,15 +26,16 @@
 
 <body>
 <?php
-        session_start();
+session_start();
         require('./db.php'); 
+        $GLOBALS['changed_cart'] = false;
         if(!isset($_SESSION["cart"]))
         {
             $_SESSION["cart"]=array();
         }
         if(isset($_GET['action']))
         {
-            function update_cart($add=false)
+            function update_cart($connect,$add=false)
                {
                     foreach($_POST['cart_soluong'] as $id=>$quantity)
                     {
@@ -44,24 +45,46 @@
                         }
                         else
                         {
+                            if (!isset($_SESSION["cart"][$id])) {
+                                $_SESSION["cart"][$id] = 0;
+                            }
                             if($add)
-                        {
+                            {
                             $_SESSION["cart"][$id] += $quantity;
-                        }
-                        else
-                        {
-                            
+                            }
+                            else
+                            {
                             $_SESSION["cart"][$id] = $quantity;
+                            }
+                            $addProduct = mysqli_query($connect, "SELECT `pro_number` FROM `tbl_product` WHERE `pro_id` = " . $id);
+                            
+                            $addProduct = mysqli_fetch_assoc($addProduct);
+                            
+                            // var_dump($addProduct); exit;
+                            if ($_SESSION["cart"][$id] > $addProduct['pro_number']) {
+                                
+                            $_SESSION["cart"][$id] = $addProduct['pro_number'];
+                            //return $GLOBALS['test'] =  $addProduct['pro_number'];
+                            $GLOBALS['changed_cart'] = true;
+                            // boolval($GLOBALS['changed_cart']);
+                            
+                            // $_SESSION["HUY"] = boolean_value($GLOBALS['changed_cart']);
+                            //getBien($GLOBALS['changed_cart']);
+                            }
+                             //var_dump($_SESSION["cart"][$id]); exit;
                         }
-                        }
+                        
                     }
+                    
                 }
            switch($_GET['action'])
            {
-               case "add":
-                update_cart(true);
-                header('location:./cart.php');
-                break;
+                case "add":
+                    update_cart($connect,true);
+                    if($GLOBALS['changed_cart'] == false){
+                        header('location:./cart.php');
+                    }
+                    break;
                 case "delete":
                     if(isset($_GET['id']))
                     {
@@ -72,19 +95,27 @@
                 case"submit":
                     if(isset($_POST['update_click']))
                     {
-                        update_cart();
+                        update_cart($connect);
                     }
                     else if(isset($_POST['order_click']))
                     {
-                       header('Location:./order.php'); 
+                        if(empty($_POST['cart_soluong'])){
+                            header('location: ./Error404.php');
+                        }else{
+                            
+                            header('Location:./order.php'); 
+                            
+                        }
                     }
                     break;
            }
         }
         if(!empty($_SESSION['cart']))
         {
-            $products = mysqli_query($connect,"SELECT * FROM `tbl_product` WHERE `pro_id` IN (".implode(",",array_keys($_SESSION["cart"])).")");            
+            $products = mysqli_query($connect,"SELECT * FROM `tbl_product` WHERE `pro_id` IN (".implode(",",array_keys($_SESSION["cart"])).")"); 
         }
+        
+        
     ?>
     <!-- ============ MAIN =============== -->
     <?php 
@@ -96,88 +127,84 @@
      $currentUser = $_SESSION['current_user'];
     ?>
     <header>
-        <div class="header-left">
+        <?php 
+            require('./db.php');
+            require('./cate.php');
+        ?>
+         <div class="header-left">
         <a href="index.php"><img src="./img/Logo-White-e1543120531648.png" alt=""></a>
             <div class="sp">
                 <div class="dropdown">
-                <a href="./product-category.php" style="text-decoration: none; color: whitesmoke;">Đàn Guitar</a>
+                    <a href="./product-category.php" style="text-decoration: none; color: whitesmoke;">Đàn Guitar</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
-                        <a href="#">Đàn Guitar Acoustic</a>
-                        <a href="#">Đàn Guitar Nước Ngoài</a>
-                        <a href="#">Đàn Guitar Classic</a>
-                        <a href="#">Đàn Guitar Có EQ</a>
+                        <?php while ($row = mysqli_fetch_array($cate1)) : ?>
+                            <a href='./product-category.php?=<?= $row['cate_id'] ?>'><?php echo $row['cate_name'] ?></a>
+                        <?php endwhile; ?>
+                    </div>
+                </div>
+            </div>
+            <div class="sp">
+                <div class="dropdown" >
+                    <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;"> Nhạc Cụ Khác</a>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
+                        <?php while ($row = mysqli_fetch_array($cate2)) : ?>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
+                        <?php endwhile; ?>
                     </div>
                 </div>
             </div>
             <div class="sp">
                 <div class="dropdown">
-                    Nhạc Cụ Khác
+                <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;">Phụ Kiện Guitar</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
-                        <a href="#">Đàn Ukulele</a>
-                        <a href="#">Đàn Kalimba</a>
-                        <a href="#">Kèn Harmonica</a>
-                        <a href="#">Rollup Piano</a>
+                        <?php while ($row = mysqli_fetch_array($cate3)) : ?>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
+                        <?php endwhile; ?>
                     </div>
                 </div>
             </div>
             <div class="sp">
                 <div class="dropdown">
-                    Phụ Kiện Guitar
+                <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;">Tự học Guitar</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
-                        <a href="#">Capo Guitar</a>
-                        <a href="#">Dây Đàn Guitar</a>
-                        <a href="#">Trang Sức Guitar</a>
-                        <a href="#">Dụng Cụ Trang Trí Guitar</a>
-                        <a href="#">Khóa Đàn Guitar</a>
-                        <a href="#">Guitar Pickups, Equalizer (EQ)</a>
-                        <a href="#">Phím Gảy Guitar (Pick/Pickholder)</a>
-                        <a href="#">Dây Đeo Guitar / Ukulele</a>
-                        <a href="#">Phụ Kiện Dành Cho Người Mới Tập</a>
+                        <?php while ($row = mysqli_fetch_array($cate4)) : ?>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
+                        <?php endwhile; ?>
                     </div>
                 </div>
             </div>
             <div class="sp">
                 <div class="dropdown">
-                    Tự Học Guitar
+                <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;">Hỗ Trợ Khách Hàng</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
-                        <a href="#">Học Đàn Guitar Cơ Bản</a>
-                        <a href="#">Học Đàn Guitar Nâng Cao </a>
-                        <a href="#">Hợp Âm Guitar</a>
-                        <a href="#">Học Đàn Ukelele</a>
-                    </div>
-                </div>
-            </div>
-            <div class="sp">
-                <div class="dropdown">
-                    Hỗ Trợ Khách Hàng
-                    <i class="fas fa-chevron-down"></i>
-                    <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
-                        <a href="#">Hướng Dẫn Mua Đàn Guitar <br> Cho Người Mới Tập Chơi</a>
-                        <a href="#">Hướng Dẫn Đặt Hàng Online</a>
-                        <a href="#">Câu Hỏi Thường Gặp</a>
-                        <a href="#">Hướng Dẫn Mua Đàn Ukulele <br> Cho Người Mới Tập Chơi</a>
+                        <?php while ($row = mysqli_fetch_array($cate5)) : ?>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
+                        <?php endwhile; ?>
                     </div>
                 </div>
             </div>
         </div>
         <div class="header-right">
-        <div class="header-right_item">
-                <a href="./register.php">
+            <!-- Account or Logout -->
+            
+            <div class="header-right_item">
+                <a href="./register.php" style="text-decoration: none; color: white; font-size: 16px">
                     <button>
                     <?php
                         if(empty($_SESSION['current_user'])){
                             ?>
                             Đăng kí / Đăng nhập
-                            <a href="../login.php">Tai day</a> 
+                            <a style="text-decoration: none; font-size: 18px; color: whitesmoke;" href="../login.php" ></a> 
                             <?php } else {
                          $currentUser = $_SESSION['current_user'];
                         
                         ?>
-                        <a href="logout.php">Xin chào <?= $currentUser['user_name'] ?></a>
+                        <a style="text-decoration: none; font-size: 18px; color: whitesmoke;" href="logout.php">Xin chào <?= $currentUser['user_name'] ?></a>
                         
                         <?php
                         }
@@ -186,7 +213,7 @@
                 </a>
             </div>
             <div class="header-right_item">
-            <a href="./cart.php" style="color: whitesmoke;"> <i class="fas fa-shopping-bag"></i> </a>
+                <a href="./cart.php" style="color: whitesmoke;"> <i class="fas fa-shopping-bag"></i> </a>
             </div>
             <div class="header-right_item" onclick="openNav()">
                 <i class="fas fa-search"></i>
@@ -194,13 +221,22 @@
             <div id="myNav" class="overlay">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="overlay-content">
-                    <input type="text" placeholder="Tìm kiếm..." id="id_text">
+                    <input type="text" placeholder="Tìm kiếm..." id="id_text" style="outline: none;">
                     <button type="submit"><i class="fas fa-search" style="color: whitesmoke;"></i></button>
                 </div>
             </div>
 
         </div>
     </header>
+    <?php
+    if($GLOBALS['changed_cart']){
+        ?>
+            <div class="product">
+                <h3>Sản phẩm đặt quá số lượng tồn kho, vui lòng <a href="./cart.php">đặt lại</a></h3>
+            </div>
+        <?php
+    }  else {
+    ?>
     <div class="product">
         <div class="container">
         <form id="cart-form" action ="cart.php?action=submit" method="POST">
@@ -219,7 +255,7 @@
                         <?php if(!empty($products))
                         {
                             $thanhtien =0;
-                        
+                            
                         while ($row = mysqli_fetch_array($products)) {?>
                         <tr>
                             <td>
@@ -247,6 +283,7 @@
                             <td>
                                 <div class="count">
                                         <input type="text" value="<?=$_SESSION['cart'][$row['pro_id']]?>" name="cart_soluong[<?=$row['pro_id']?>]"/>
+                                        
                                 </div>
                             </td>
                             <td>
@@ -309,7 +346,11 @@
         </div>
         </form>
     </div>
-    
+
+
+<?php
+    }
+    ?>
     
     <footer>
         <div class="container">

@@ -43,67 +43,66 @@
                 </div>
             </div>
             <div class="sp">
-                <div class="dropdown">
-                    Nhạc Cụ Khác
+                <div class="dropdown" >
+                    <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;"> Nhạc Cụ Khác</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
                         <?php while ($row = mysqli_fetch_array($cate2)) : ?>
-                            <a href='#'><?php echo $row['cate_name'] ?></a>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
                         <?php endwhile; ?>
                     </div>
                 </div>
             </div>
             <div class="sp">
                 <div class="dropdown">
-                    Phụ Kiện Guitar
+                <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;">Phụ Kiện Guitar</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
                         <?php while ($row = mysqli_fetch_array($cate3)) : ?>
-                            <a href='#'><?php echo $row['cate_name'] ?></a>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
                         <?php endwhile; ?>
                     </div>
                 </div>
             </div>
             <div class="sp">
                 <div class="dropdown">
-                    Tự Học Guitar
+                <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;">Tự học Guitar</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
                         <?php while ($row = mysqli_fetch_array($cate4)) : ?>
-                            <a href='#'><?php echo $row['cate_name'] ?></a>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
                         <?php endwhile; ?>
                     </div>
                 </div>
             </div>
             <div class="sp">
                 <div class="dropdown">
-                    Hỗ Trợ Khách Hàng
+                <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;">Hỗ Trợ Khách Hàng</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
                         <?php while ($row = mysqli_fetch_array($cate5)) : ?>
-                            <a href='#'><?php echo $row['cate_name'] ?></a>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
                         <?php endwhile; ?>
                     </div>
                 </div>
             </div>
         </div>
-
-        
         <div class="header-right">
+            <!-- Account or Logout -->
+            
             <div class="header-right_item">
-            <a href="./register.php">
+                <a href="./register.php" style="text-decoration: none; color: white; font-size: 16px">
                     <button>
-                        
                     <?php
                         if(empty($_SESSION['current_user'])){
                             ?>
                             Đăng kí / Đăng nhập
-                            <a href="../login.php">Tai day</a> 
+                            <a style="text-decoration: none; font-size: 18px; color: whitesmoke;" href="../login.php" ></a> 
                             <?php } else {
                          $currentUser = $_SESSION['current_user'];
                         
                         ?>
-                        <a href="logout.php">Xin chào <?= $currentUser['user_name'] ?></a>
+                        <a style="text-decoration: none; font-size: 18px; color: whitesmoke;" href="logout.php">Xin chào <?= $currentUser['user_name'] ?></a>
                         
                         <?php
                         }
@@ -112,7 +111,7 @@
                 </a>
             </div>
             <div class="header-right_item">
-            <a href="./cart.php" style="color: whitesmoke;"> <i class="fas fa-shopping-bag"></i> </a>
+                <a href="./cart.php" style="color: whitesmoke;"> <i class="fas fa-shopping-bag"></i> </a>
             </div>
             <div class="header-right_item" onclick="openNav()">
                 <i class="fas fa-search"></i>
@@ -120,7 +119,7 @@
             <div id="myNav" class="overlay">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="overlay-content">
-                    <input type="text" placeholder="Tìm kiếm..." id="id_text">
+                    <input type="text" placeholder="Tìm kiếm..." id="id_text" style="outline: none;">
                     <button type="submit"><i class="fas fa-search" style="color: whitesmoke;"></i></button>
                 </div>
             </div>

@@ -132,45 +132,45 @@
                 </div>
             </div>
             <div class="sp">
-                <div class="dropdown">
-                    Nhạc Cụ Khác
+                <div class="dropdown" >
+                    <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;"> Nhạc Cụ Khác</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
                         <?php while ($row = mysqli_fetch_array($cate2)) : ?>
-                            <a href='#'><?php echo $row['cate_name'] ?></a>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
                         <?php endwhile; ?>
                     </div>
                 </div>
             </div>
             <div class="sp">
                 <div class="dropdown">
-                    Phụ Kiện Guitar
+                <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;">Phụ Kiện Guitar</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
                         <?php while ($row = mysqli_fetch_array($cate3)) : ?>
-                            <a href='#'><?php echo $row['cate_name'] ?></a>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
                         <?php endwhile; ?>
                     </div>
                 </div>
             </div>
             <div class="sp">
                 <div class="dropdown">
-                    Tự Học Guitar
+                <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;">Tự học Guitar</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
                         <?php while ($row = mysqli_fetch_array($cate4)) : ?>
-                            <a href='#'><?php echo $row['cate_name'] ?></a>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
                         <?php endwhile; ?>
                     </div>
                 </div>
             </div>
             <div class="sp">
                 <div class="dropdown">
-                    Hỗ Trợ Khách Hàng
+                <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;">Hỗ Trợ Khách Hàng</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
                         <?php while ($row = mysqli_fetch_array($cate5)) : ?>
-                            <a href='#'><?php echo $row['cate_name'] ?></a>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
                         <?php endwhile; ?>
                     </div>
                 </div>
@@ -182,17 +182,16 @@
             <div class="header-right_item">
                 <a href="./register.php" style="text-decoration: none; color: white; font-size: 16px">
                     <button>
-                        
                     <?php
                         if(empty($_SESSION['current_user'])){
                             ?>
                             Đăng kí / Đăng nhập
-                            <a href="../login.php" ></a> 
+                            <a style="text-decoration: none; font-size: 18px; color: whitesmoke;" href="../login.php" ></a> 
                             <?php } else {
                          $currentUser = $_SESSION['current_user'];
                         
                         ?>
-                        <a href="logout.php">Xin chào <?= $currentUser['user_name'] ?></a>
+                        <a style="text-decoration: none; font-size: 18px; color: whitesmoke;" href="logout.php">Xin chào <?= $currentUser['user_name'] ?></a>
                         
                         <?php
                         }
@@ -223,7 +222,10 @@
                 <h1>
                     MUA ĐÀN GUITAR TRỰC TUYẾN, <br> UY TÍN, TIỆN LỢI <br>
                     <button>HƯỚNG DẪN CHỌN ĐÀN GUITAR</button>
-                    <button>MUA ĐÀN GUITAR</button>
+                    <a href="./product-category.php">
+
+                        <button>MUA ĐÀN GUITAR</button>
+                    </a>
                 </h1>
             </div>
             <img src="./img/guitar-station-inside.jpg" style="width: 100%; filter: opacity(70%);">
@@ -231,8 +233,9 @@
 
         <div class="myslide fade">
             <div class="txt">
-                <h1>ĐÀN KALIMBA XINH XẮN GIÁ RẺ VÀ CỰC KỲ <br> DỄ CHƠI <br> Giá chỉ từ 390,000đ <br> <button>MUA
-                        NGAY</button> </h1>
+                <h1>ĐÀN KALIMBA XINH XẮN GIÁ RẺ VÀ CỰC KỲ <br> DỄ CHƠI <br> Giá chỉ từ 390,000đ <br>
+                <a href="./Error404.php"><button>MUA NGAY</button></a>
+                 </h1>
 
             </div>
             <img src="./img/kalimba.jpg" style="width: 100%; filter: opacity(70%);">
@@ -309,6 +312,7 @@
                 <ul id="content-slider" class="content-slider">
                     <li>
                         <div class="slide-item">
+                            <a style="text-decoration: none; color: black;" href="./product.php?cate_id=1&pro_id=1">
                             <img src="./img/topSP/HD-119-TOP-Copy-2-300x300.jpg" alt=""> <br>
                             <span>Guitar Acoustic Station HD-119</span> <br>
                             <span class="fa fa-star checked"></span>
@@ -317,10 +321,13 @@
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span> <br>
                             <span class="oldCost">70,000đ</span> <span class="newCost">50,000đ</span>
+                            </a>
+                            
                         </div>
                     </li>
                     <li>
                         <div class="slide-item">
+                            <a href="./Error404.php"  style="text-decoration: none; color: black;">
                             <img src="./img/topSP/day-deo-guitar-tho-cam-8-300x300.png" alt=""> <br>
                             <span>Dây Đeo Guitar & Ukulele Độc Đáo</span> <br>
                             <span class="fa fa-star checked"></span>
@@ -329,11 +336,13 @@
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span> <br>
                             <span class="oldCost">70,000đ</span> <span class="newCost">50,000đ</span>
+                            </a>
                         </div>
                     </li>
                     <li>
                         <div class="slide-item">
-                            <img src="./img/topSP/capo-classic-musedo-mc-4-300x300.jpg" alt=""> <br>
+                        <a href="./Error404.php"  style="text-decoration: none; color: black;">
+                        <img src="./img/topSP/capo-classic-musedo-mc-4-300x300.jpg" alt=""> <br>
                             <span>Capo Đàn Guitar Classic & Acoustic Musedo MC-4</span> <br>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
@@ -341,11 +350,14 @@
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span> <br>
                             <span class="oldCost">70,000đ</span> <span class="newCost">50,000đ</span>
+                    </a>
+                            
                         </div>
                     </li>
                     <li>
                         <div class="slide-item">
-                            <img src="./img/topSP/capo-dan-guitar-acoustic-musedo-mc-1-2-300x300.jpg" alt=""> <br>
+                        <a href="./Error404.php"  style="text-decoration: none; color: black;"> 
+                        <img src="./img/topSP/capo-dan-guitar-acoustic-musedo-mc-1-2-300x300.jpg" alt=""> <br>
                             <span>Capo Musedo – MC1</span> <br>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
@@ -353,11 +365,14 @@
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span> <br>
                             <span class="oldCost">70,000đ</span> <span class="newCost">50,000đ</span>
+                    </a>
+                           
                         </div>
                     </li>
                     <li>
                         <div class="slide-item">
-                            <img src="./img/topSP/aw-436-300x300.jpg" alt=""> <br>
+                        <a href="./Error404.php"  style="text-decoration: none; color: black;"> 
+                        <img src="./img/topSP/aw-436-300x300.jpg" alt=""> <br>
                             <span>Dây Acoustic Alice Aw436</span> <br>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
@@ -365,11 +380,14 @@
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span> <br>
                             <span class="oldCost">70,000đ</span> <span class="newCost">50,000đ</span>
+                    </a>
+                         
                         </div>
                     </li>
                     <li>
                         <div class="slide-item">
-                            <img src="./img/topSP/chan-dan-chu-a-5-238x300.jpg" alt=""> <br>
+                        <a href="./Error404.php"  style="text-decoration: none; color: black;"> 
+                        <img src="./img/topSP/chan-dan-chu-a-5-238x300.jpg" alt=""> <br>
                             <span>Dây Acoustic Alice Aw436</span> <br>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
@@ -377,6 +395,8 @@
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span> <br>
                             <span class="oldCost">70,000đ</span> <span class="newCost">50,000đ</span>
+                    </a>
+                            
                         </div>
                     </li>
                 </ul>
@@ -391,7 +411,6 @@
         <div class="container" id=container>
             <div class="top-content">
                 <div class="content-line_left" id="line" style="width: 479px;">
-
                 </div>
                 <div class="content-mid">
                     <div id="title">
@@ -405,44 +424,62 @@
             <ul id="autoWidth" class="cs-hidden">
                 <li class="item-a">
                     <div class="slide-item">
-                        <img src="./img/topSP/day-deo-guitar-tho-cam-8-300x300.png" alt=""> <br>
+                    <a href="./Error404.php"  style="text-decoration: none; color: black;">
+                    <img src="./img/topSP/day-deo-guitar-tho-cam-8-300x300.png" alt=""> <br>
                         <span>Dây Đeo Guitar & Ukulele Độc Đáo</span> <br>
                         <span class="oldCost">70,000đ</span> <span class="newCost">50,000đ</span>
+                </a>
+                        
                     </div>
                 </li>
                 <li class="item-b">
                     <div class="slide-item">
-                        <img src="./img/topSP/day-deo-guitar-tho-cam-8-300x300.png" alt=""> <br>
+                    <a href="./Error404.php"  style="text-decoration: none; color: black;">
+                    <img src="./img/topSP/day-deo-guitar-tho-cam-8-300x300.png" alt=""> <br>
                         <span>Dây Đeo Guitar & Ukulele Độc Đáo</span> <br>
-                        <span class="oldCost">70,000đ</span> <span class="newCost">50,000đ</span>
+                        <span class="oldCost">70,000đ</span> <span class="newCost">50,000đ</span>    
+                </a>
+                        
                     </div>
                 </li>
                 <li class="item-c">
                     <div class="slide-item">
-                        <img src="./img/topSP/day-deo-guitar-tho-cam-8-300x300.png" alt=""> <br>
+                    <a href="./Error404.php"  style="text-decoration: none; color: black;"> 
+                    <img src="./img/topSP/day-deo-guitar-tho-cam-8-300x300.png" alt=""> <br>
                         <span>Dây Đeo Guitar & Ukulele Độc Đáo</span> <br>
                         <span class="oldCost">70,000đ</span> <span class="newCost">50,000đ</span>
+                </a>
+                        
                     </div>
                 </li>
                 <li class="item-d">
                     <div class="slide-item">
-                        <img src="./img/topSP/day-deo-guitar-tho-cam-8-300x300.png" alt=""> <br>
+                    <a href="./Error404.php"  style="text-decoration: none; color: black;">
+                    <img src="./img/topSP/day-deo-guitar-tho-cam-8-300x300.png" alt=""> <br>
                         <span>Dây Đeo Guitar & Ukulele Độc Đáo</span> <br>
                         <span class="oldCost">70,000đ</span> <span class="newCost">50,000đ</span>
+                </a>
+                        
                     </div>
                 </li>
                 <li class="item-e">
                     <div class="slide-item">
-                        <img src="./img/topSP/day-deo-guitar-tho-cam-8-300x300.png" alt=""> <br>
+                    <a href="./Error404.php"  style="text-decoration: none; color: black;"> 
+                    <img src="./img/topSP/day-deo-guitar-tho-cam-8-300x300.png" alt=""> <br>
                         <span>Dây Đeo Guitar & Ukulele Độc Đáo</span> <br>
                         <span class="oldCost">70,000đ</span> <span class="newCost">50,000đ</span>
+                </a>
+                        
                     </div>
                 </li>
                 <li class="item-f">
                     <div class="slide-item">
-                        <img src="./img/topSP/day-deo-guitar-tho-cam-8-300x300.png" alt=""> <br>
+                    <a href="./Error404.php"  style="text-decoration: none; color: black;">
+                    <img src="./img/topSP/day-deo-guitar-tho-cam-8-300x300.png" alt=""> <br>
                         <span>Dây Đeo Guitar & Ukulele Độc Đáo</span> <br>
                         <span class="oldCost">70,000đ</span> <span class="newCost">50,000đ</span>
+                </a>
+                       
                     </div>
                 </li>
             </ul>
@@ -462,7 +499,7 @@
                 </div>
                 <div class="content-mid">
                     <div class="title">
-                        <i class="fas fa-check"></i> <span>TOP DANH MỤC</span>
+                        <i class="fas fa-check"></i><span>TOP DANH MỤC</span>
                     </div>
                 </div>
                 <div class="content-line_right" id="line" style="width: 479px;">
@@ -472,35 +509,35 @@
             <div class="bot-content">
                 <div class="bot-content_item">
                     <img src="./img/danhMuc/phuKien.jpg" alt="">
-                    <a href="">
+                    <a href="./Error404.php">
                         PHỤ KIỆN GUITAR
                         <p class="info">45 sản phẩm</p>
                     </a>
                 </div>
                 <div class="bot-content_item">
                     <img src="./img/danhMuc/dan_guitar_cc300_6-360x360.jpg" alt="">
-                    <a href="">
+                    <a href="./Error404.php">
                         ĐÀN GUITAR
                         <p class="info">30 sản phẩm</p>
                     </a>
                 </div>
                 <div class="bot-content_item">
                     <img src="./img/danhMuc/kalimba.png" alt="">
-                    <a href="">
+                    <a href="./Error404.php">
                         ĐÀN KALIMBA
                         <p class="info">15 sản phẩm</p>
                     </a>
                 </div>
                 <div class="bot-content_item">
                     <img src="./img/danhMuc/day-deo-ukulele-1-360x360.png" alt="">
-                    <a href="">
+                    <a href="./Error404.php">
                         ĐÀN UKELELE
                         <p class="info">28 sản phẩm</p>
                     </a>
                 </div>
                 <div class="bot-content_item">
                     <img src="./img/danhMuc/huong-dan-mua-ukulele-5-360x360.png" alt="">
-                    <a href="">
+                    <a href="./Error404.php">
                         HOT COMBO
                         <p class="info">13 sản phẩm</p>
                     </a>
@@ -663,7 +700,8 @@
                     <div class="item-small_cnt">
                         <div class="tooltip">
                             <div class="fb">
-                                <button><i class="fab fa-facebook-f"></i></button>
+                                <a href="https://www.facebook.com/guitarstation.vn/"><button><i class="fab fa-facebook-f"></i></button></a>
+                                
                             </div>
                             <span class="tooltiptext">Theo dõi Guitar Station trên Facebook</span>
                         </div>

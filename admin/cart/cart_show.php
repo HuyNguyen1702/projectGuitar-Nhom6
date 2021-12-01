@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,26 +27,35 @@
 </head>
 
 <body>
+
     <?php
     session_start();
     include '../../db.php';
     $search = isset($_GET['ten']) ? $_GET['ten'] : "";
     if ($search) {
-        $where = "WHERE 'user_id' LIKE '%" . $search . "% OR 'pro_id' LIKE  '%" . $search . "%' ";
+        $where = "WHERE 'order_id' LIKE '%" . $search . "% OR 'pro_id' LIKE  '%" . $search . "%' ";
     }
     $item_per_page = !empty($_GET['per_page']) ? $_GET['per_page'] : 4;
     $current_page = !empty($_GET['page']) ? $_GET['page'] : 1;
     $offset = ($current_page - 1) * $item_per_page;
     if ($search) {
-        $sql = "SELECT * FROM `tbl_cartinf` WHERE `user_id` LIKE '%" . $search . "%' OR `pro_id` LIMIT " . $item_per_page . " OFFSET " . $offset;
-        $totalRecords = mysqli_query($connect, "SELECT * FROM `tbl_cartinf` WHERE `user_id` LIKE '%" . $search . "%' OR `pro_id` LIKE '%" . $search . "%' ");
+        $sql = "SELECT * FROM `tbl_cartinf` WHERE `order_id` LIKE '%" . $search . "%' OR `pro_id` LIMIT " . $item_per_page . " OFFSET " . $offset;
+        $totalRecords = mysqli_query($connect, "SELECT * FROM `tbl_cartinf` WHERE `order_id` LIKE '%" . $search . "%' OR `pro_id` LIKE '%" . $search . "%' ");
     } else {
-        $sql = "SELECT * FROM tbl_cartinf LIMIT " . $item_per_page . " OFFSET " . $offset;
-        $totalRecords = mysqli_query($connect, "SELECT * FROM `tbl_cartinf`");
+        $sql = "SELECT tbl_cartmain.order_id,tbl_cartinf.cart_id,tbl_cartmain.order_name,tbl_cartmain.order_address,tbl_cartmain.order_address2,tbl_cartmain.order_address3,tbl_cartmain.order_address4,tbl_cartmain.order_phone,tbl_product.pro_name,tbl_cartinf.cart_soluong,tbl_product.pro_price,tbl_cartinf.cart_total,tbl_cartmain.order_note,tbl_cartinf.pro_id
+        FROM tbl_product,tbl_cartmain,tbl_cartinf
+        WHERE tbl_product.pro_id=tbl_cartinf.pro_id and tbl_cartmain.order_id=tbl_cartinf.order_id LIMIT " . $item_per_page . " OFFSET " . $offset;
+        
+        $totalRecords = mysqli_query($connect, "SELECT tbl_cartmain.order_id,tbl_cartinf.cart_id,tbl_cartmain.order_name,tbl_cartmain.order_address,tbl_cartmain.order_address2,tbl_cartmain.order_address3,tbl_cartmain.order_address4,tbl_cartmain.order_phone,tbl_product.pro_name,tbl_cartinf.cart_soluong,tbl_product.pro_price,tbl_cartinf.cart_total,tbl_cartmain.order_note,tbl_cartinf.pro_id
+        FROM tbl_product,tbl_cartmain,tbl_cartinf
+        WHERE tbl_product.pro_id=tbl_cartinf.pro_id and tbl_cartmain.order_id=tbl_cartinf.order_id");
     }
     $totalRecords = $totalRecords->num_rows;
     $totalRecords = ceil($totalRecords / $item_per_page);
     $query = mysqli_query($connect, $sql);
+    //$result = mysqli_query($connect, $totalRecords) or trigger_error("Query Failed! SQL: $totalRecords - Error: ".mysqli_error($connect), E_USER_ERROR);
+    
+    //var_dump($sql);exit;
     // $sql = "SELECT * FROM `tbl_product`";
     // $query = mysqli_query($connect, $sql);
     if (empty($_SESSION['current_user'])) {
@@ -107,16 +117,21 @@
                     <table style="width: 1640px; border-collapse: inherit;  border: 1px solid #ddd; border-radius: 20px;">
                         <tr>
                             <th>MÃ GIỎ HÀNG</th>
-                            <th>MÃ NGƯỜI DÙNG</th>
-                            <th>MÃ SẢN PHẨM</th>
+                            <th>TÊN NGƯỜI MUA</th>
+                            <th>ĐỊA CHỈ</th>
+                            <th>ĐIỆN THOẠI</th>
+                            <th>TÊN SẢN PHẨM</th>
                             <th>SỐ LƯỢNG</th>
                             <th>ĐƠN GIÁ</th>
+                            <th>THÀNH TIỀN</th>
+                            <th>GHI CHÚ</th>
                             <th style="width: 130px">THAO TÁC</th>
                             <th style="width: 130px"></th>
                         </tr>
 
                         <!-- =================================== -->
                         <?php while ($row = mysqli_fetch_assoc($query)) : ?>
+                            
                             <tr>
                                 <td>
                                     <div class="cate_id">
@@ -125,29 +140,54 @@
                                 </td>
                                 <td>
                                     <div class="cate_id">
-                                        <?php echo $row['user_id'] ?>
+                                        <?php echo $row['order_name'] ?>
                                     </div>
                                 </td>
-                                <td>
-                                    <div class="cate_id">
-                                        <?php echo $row['pro_id'] ?>
+                               <td>
+                                     <div class="cate_id">
+                                        <?php echo $row['order_address4']?> 
+                                        ,
+                                        <?php echo $row['order_address3']?>
+                                        ,
+                                        <?php echo $row['order_address2']?>
+                                        ,
+                                        <?php echo $row['order_address']?>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="pro_id">
+                                        <?php echo $row['order_phone'] ?>
+                                    </div>
+                                </td>
+                                <td>
+                                     <div class="cate_id">
+                                        <?php echo $row['pro_name'] ?>
+                                    </div>
+                                </td>
+                                <td>
+                                     <div class="cate_id">
                                         <?php echo $row['cart_soluong'] ?>
                                     </div>
                                 </td>
-
                                 <td>
                                     <div class="pro_id">
-                                        <?php echo $row['cart_price'] ?>
+                                        <?php echo $row['pro_price'] ?>
+                                    </div>
+                                </td>
+                                <td>
+                                     <div class="cate_id">
+                                        <?php echo $row['cart_total'] ?>
+                                    </div>
+                                </td>
+                                <td>
+                                     <div class="cate_id">
+                                        <?php echo $row['order_note'] ?>
                                     </div>
                                 </td>
 
                                 <td style="padding: 20px !important;">
                                     <div class="button-edit">
-                                        <a type="button" href="cart.php?page_layout=edit&cart_id=<?php echo $row['cart_id']; ?>">Edit</a>
+                                        <a type="button" href="cart.php?page_layout=edit&order_id=<?php echo $row['order_id']; ?>&pro_id=<?php echo $row['pro_id']?>&cart_id=<?php echo $row['cart_id']?>">Edit</a>
                                     </div>
                                 </td>
                                 <td style="padding: 10px !important;">

@@ -1,0 +1,118 @@
+/* =========== TABLE CART =========== */
+.table-cart{
+    font-size: 18px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+
+.vertical{
+    width: 2px;
+    height: 250px;
+    background-color: #ddd;
+}
+
+/* ========== TABLE CART LEFT =========== */
+
+
+.table-cart_left table {
+    border-collapse: collapse;
+    width: 600px;
+}
+
+.table-cart_left th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.information, .item-cart{
+    display: flex;
+    align-items: center;
+}
+
+.del-item button{
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    background-color: inherit;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+
+.remove a{
+    color: #ddd;
+    text-decoration: none;
+}
+
+.del-item button:hover {
+    border: 2px solid black;
+}
+
+.del-item button:hover .remove a{
+    color: black;
+}
+
+.item-cart_img img{
+    width: 55.34px;
+}
+
+.backToShop button{
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 30px;
+    padding: 5px 10px;
+    background-color: inherit;
+    border: 2px solid black;
+}
+
+.backToShop button:hover{
+    background-color: black;
+    color: whitesmoke;
+}
+
+.backToShop button:hover a{
+    color: whitesmoke;
+}
+
+.backToShop a{
+    text-decoration: none;
+    color: black;
+}
+
+/* ============ TABLE CART RIGHT ============ */
+
+.table-cart_right table{
+    width: 400px;
+}
+
+.table-cart_right th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-cnt, .cart-total{
+    display: flex;
+    justify-content: space-between;
+}
+
+.pay{
+    text-align: center;
+}
+
+.pay input{
+    cursor: pointer;
+    color: whitesmoke;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 30px;
+    padding: 7px 20px;
+    background-color: black;
+    border: 2px solid black;
+}
+
+.product{
+    height: calc(100vh - 64.5px - 235px);
+}

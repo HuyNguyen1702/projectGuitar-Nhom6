@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
     <?php
     session_start();
     $cate_id = $_GET['cate_id'];

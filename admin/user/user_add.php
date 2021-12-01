@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
 <?php
 session_start();
 $connect = mysqli_connect('localhost','root','','qlchguitar');
@@ -90,7 +91,7 @@ if (empty($_SESSION['current_user'])) {
         </div>
         <div class="display-data">
             <div class="title">
-                <span>THÊM SẢN PHẨM MỚI</span>
+                <span>THÊM TÀI KHOẢN MỚI</span>
             </div>
             <div class="add">
                 <form action="" method="POST">

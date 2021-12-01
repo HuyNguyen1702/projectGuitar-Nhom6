@@ -5,86 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        Mua Đàn Guitar Trực Tuyến Giá Tốt
-    </title>
+    <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/formLogin.css">
-    <link rel="stylesheet" href="./css/newProduct1.css">
-    <link rel="stylesheet" href="./css/product-category.css">
-    <link rel="stylesheet" href="./css/register.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384- fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styleError404.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384- fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;400&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="./css/lightslider.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="./js/lightslider.js"></script>
-    <style>
-            .box-content{
-                margin: 0 auto;
-                width: 800px;
-                border: 1px solid #ccc;
-                text-align: center;
-                padding: 20px;
-            }
-            #user_login form{
-                width: 200px;
-                margin: 40px auto;
-            }
-            #user_login form input{
-                margin: 5px 0;
-            }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+    
+    <script>
+        setTimeout(function(){
+            window.location.href='index.php';
+        },5500);
+    </script>
 </head>
+
 <body>
     <?php
-        session_start();
-        include 'db.php';
-        include 'cate.php';
-        $error = false;
-        if(isset($_POST["dangki"])) {
-            $user_name1 = $_POST["user_name1"];
-            $user_pass1 = $_POST["user_pass1"];
-            
-            if($user_name1 == "" || $user_pass1 == "") {
-            echo "bạn vui lòng nhập đầy đủ thông tin";
-            }else{
-            $sql = "INSERT INTO `tbl_user`(`user_name`,`user_pass`) VALUES ('$user_name1','$user_pass1')";
-            if(mysqli_query($connect,$sql)){
-                $message = "Thêm thành công";
-                echo "<script type='text/javascript'>alert('$message');</script>";
-            }else{
-                $result = mysqli_query($connect, $sql) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error($connect), E_USER_ERROR);
-            }
-        }
-    }else
-        if(isset($_POST["dangnhap"])){
-            $user_name = $_POST["user_name"];
-            $user_pass = $_POST["user_pass"];
-            if($user_name == "" || $user_pass == ""){
-                echo "Khong duoc de trong";
-            }else{
-                $sql = "Select * from `tbl_user` where user_name = '$user_name' and user_pass='$user_pass'";
-                $query = mysqli_query($connect,$sql);
-                $num_rows = mysqli_num_rows($query);
-                if($num_rows == 0){
-                    echo "Thong tin sai";
-                }else{
-                    while($data = mysqli_fetch_array($query)){
-                        $_SESSION['current_user'] = $data;
-                    }
-                }
-            }
-        }
+    session_start();
     ?>
-        <?php 
-        if (empty($_SESSION['current_user'])) { 
-        ?>
-            <header>
-            <div class="header-left">
+    <?php
+    require('./db.php');
+    require('./cate.php');
+    ?>
+    <header>
+        <div class="header-left">
         <a href="index.php"><img src="./img/Logo-White-e1543120531648.png" alt=""></a>
             <div class="sp">
                 <div class="dropdown">
@@ -142,11 +87,28 @@
                 </div>
             </div>
         </div>
-            <div class="header-right">
+        <div class="header-right">
+            <!-- Account or Logout -->
+            
             <div class="header-right_item">
-                <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                    ĐĂNG NHẬP / ĐĂNG KÝ
-                </button>
+                <a href="./register.php" style="text-decoration: none; color: white; font-size: 16px">
+                    <button>
+                    <?php
+                        if(empty($_SESSION['current_user'])){
+                            ?>
+                            Đăng kí / Đăng nhập
+                            <a style="text-decoration: none; font-size: 18px; color: whitesmoke;" href="../login.php" ></a> 
+                            <?php } else {
+                         $currentUser = $_SESSION['current_user'];
+                        
+                        ?>
+                        <a style="text-decoration: none; font-size: 18px; color: whitesmoke;" href="logout.php">Xin chào <?= $currentUser['user_name'] ?></a>
+                        
+                        <?php
+                        }
+                        ?>
+                    </button>
+                </a>
             </div>
             <div class="header-right_item">
                 <a href="./cart.php" style="color: whitesmoke;"> <i class="fas fa-shopping-bag"></i> </a>
@@ -162,57 +124,26 @@
                 </div>
             </div>
 
-            </div>
-            </header>
-            
-                <!-- ================ MAIN ================== -->
-        <div class="login-social">
-            <div class="login-social_cnt">
-                <p>Đăng nhập bằng Facebook/Google</p>
-                <button>  <i class="fab fa-facebook"></i> </button> 
-                <button> <i class="fab fa-google"></i> </button> 
-            </div>
-            </div>
-    
-            <div class="container">
-                <div class="big-wrap">
-                    <div class="login">
-                        <form action="./register.php" method="Post" autocomplete="off">
-                            <h1>ĐĂNG NHẬP</h1>
-                                <label for="email"><b>Email đăng nhập *</b></label>
-                                <input type="text" placeholder="Enter Email" name="user_name" required>
+        </div>
+    </header>
 
-                                <label for="psw"><b>Mật khẩu *</b></label>
-                                <input type="password" placeholder="Enter Password" name="user_pass" required>
-                    <div class="clearfix">
-                        <button type="submit" name="dangnhap" class="btn">Sign In</button>
-                    </div>
-                </form>
-            </div>
-            <div class="vertical">
-            </div>
-            <div class="register">
-                <form action="./register.php" method="POST">
-                    <h1>ĐĂNG KÍ</h1>
-
-                    <label for="email"><b>Email đăng kí *</b></label>
-                    <input type="text" placeholder="Enter Name" name="user_name1" required>
-
-                    <label for="psw"><b>Mật khẩu *</b></label>
-                    <input type="password" placeholder="Enter Password" name="user_pass1" required>
-
-                    <p>Bằng cách tạo một tài khoản, bạn đồng ý với <a href="#" style="color:dodgerblue">Điều khoản & Quyền riêng tư của chúng tôi.</a>.
-                    </p>
-
-                    <div class="clearfix">
-                        <button type="submit" name="dangki" class="btn">Sign Up</button>
-                    </div>
-                </form>
-            </div>
+    <div class="conTaiNer">
+        <div class="bigNumber">
+            <p>404</p>
+        </div>
+        <div class="smallTitle">
+            <p>OOPS! SOMETHING IS WRONG</p>
+        </div>
+        <div class="descrip">
+            <br>
+            Chức năng hiện tại đang được chúng tôi bảo trì. Bạn hãy quay lại sau <span id="count">5</span><br>
+            <a href="./index.php"> Trở lại trang web </a>
+        </div>
+        <div class="social">
+            <a href=""> <i class="fab fa-facebook-f"></i> </a>
+            <a href=""> <i class="fas fa-envelope"></i></a>
         </div>
     </div>
-
-    <!-- ============= END MAIN =================  -->
 
     <footer>
         <div class="container">
@@ -274,25 +205,6 @@
             </div>
         </div>
     </footer>
-        <script src="./js/index.js"></script>
-        <script src="./js/product.js"></script>
-        <script src="./js/formLogin.js"></script>
-        <script>
-        window.addEventListener("scroll", function () {
-            let header = document.querySelector("header");
-            header.classList.toggle("sticky", window.scrollY > 0);
-        })
-    </script>
-    <?php
-    } 
-    else {
-        $currentUser = $_SESSION['current_user'];
-        if($currentUser['user_mode'] == 1){
-            header('Location: ./admin/homepage.php');
-        }else{
-            header('Location: ./index.php');
-        }
-    } 
-?>
+    <script src="countdown.js"></script>
 </body>
 </html>

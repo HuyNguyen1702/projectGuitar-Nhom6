@@ -15,7 +15,7 @@ html {
     width: 100%;
     display: block;
     transition: top 0.3s;
-    padding: 10px;
+    /* Xóa padding-top: 10px */
 }
 
 #navbar-hide a {
@@ -168,14 +168,39 @@ input[type=number] {
 .addCart-right {
     margin-left: 30px;
     margin-right: 20px;
+    /* update từ chỗ này */
+    display: flex;
+    align-items: center;
 }
+
+.value input{
+    padding: 7px 0px;
+    outline: none;
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 30px;
+    width: 40px;
+}
+
+.add input{
+    cursor: pointer;
+    color: whitesmoke;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 8px 20px;
+    background-color: black;
+    border: 2px solid black;
+    margin-left: 30px;
+}
+
+/* cho tới hết chỗ này */
 
 .addCart-left {
     margin-right: 30px;
     margin-left: 20px;
 }
 
-.addCart-left button {
+/* .addCart-left button {
     cursor: pointer;
     padding: 10px;
     font-size: 20px;
@@ -184,7 +209,7 @@ input[type=number] {
     background-color: black;
     border: none;
     color: whitesmoke;
-}
+} */
 
 .bar {
     margin-top: 25px;
@@ -203,7 +228,7 @@ input[type=number] {
 }
 
 .ship button {
-    font-size: 18px;
+    font-size: 18px; 
     border-radius: 5px;
     padding: 4px 10px;
     border: none;

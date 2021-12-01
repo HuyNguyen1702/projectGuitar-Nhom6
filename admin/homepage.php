@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -23,6 +23,10 @@
 <body>
     <?php
         session_start();
+        $currentUser = $_SESSION['current_user'];
+        if($currentUser['user_mode'] == 0 || empty($_SESSION['current_user']) ){
+            header('Location: ../Error404.php');
+        }
     ?>
     <header style="background-color: #0984e3;">
         <div class="cnt">
@@ -65,16 +69,16 @@
         </div>
         <div class="display-data" style="margin: auto;">
             <div class="grid-container">
-                <a href="">
-                    <div class="grid-item" style="background-color: #ff7675;" > DANH MỤC</div>
+                <a href="./cate/cate_show.php">
+                    <div class="grid-item" style="background-color: #ff7675;" >DANH MỤC</div>
                 </a>
-                <a href="" >
+                <a href="./product/pro_show.php" >
                     <div class="grid-item" style="background-color: #55efc4;">SẢN PHẨM</div>
                 </a>
-                <a href="" >
+                <a href="./user/user_show.php" >
                     <div class="grid-item" style="background-color: #74b9ff;">TÀI KHOẢN</div>
                 </a>
-                <a href="" >
+                <a href="./cart/cart_show.php" >
                     <div class="grid-item" style="background-color: #a29bfe;">GIỎ HÀNG</div>
                 </a>
             </div>

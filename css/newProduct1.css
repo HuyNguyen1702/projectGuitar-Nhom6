@@ -1,0 +1,410 @@
+body {
+    background-color: #ffffff !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* =============== NAVBAR HIDE =============== */
+
+#navbar-hide {
+    background-color: #333;
+    position: fixed;
+    top: -100px;
+    width: 100%;
+    display: block;
+    transition: top 0.3s;
+    /* Xóa padding-top: 10px */
+}
+
+#navbar-hide a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 10px 15px;
+}
+
+#navbar-hide a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.link-cart_button button{
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 15px;
+    background-color: black;
+    border: none;
+    color: whitesmoke;
+}
+
+.actived:focus  {
+    background-color: whitesmoke;
+    color: black;
+}
+
+/* ============== END NAVBAR HIDE ============= */
+
+ul.breadcrumb {
+    list-style: none;
+    background-color: #ffffff;
+}
+
+.product-right {
+    line-height: 2;
+    z-index: 100;
+}
+
+.product-right_top button {
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0);
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.img-product img {
+    width: 1170px;
+    margin-top: -130px;
+}
+
+.front:hover, .back:hover {
+    transition: 0.4s;
+    color: whitesmoke;
+    background-color: black;
+}
+
+.active:focus {
+    transition: 0.4s;
+    color: whitesmoke;
+    background-color: black;
+}
+
+/* ========= COMBO GIFT =========== */
+
+.product-left_bot {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    grid-gap: 10px;
+}
+
+.left-bot_item {
+    width: 144.66px;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    height: 210px;
+}
+
+.gift-img img {
+    width: 126.66px;
+    height: 126.66px;
+}
+
+.gift-cnt {
+    font-size: 14px;
+}
+
+/* ============== CART =============== */
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.count {
+    display: flex;
+}
+
+.count input {
+    font-size: 24px;
+    text-align: center;
+    outline: none;
+    color: black;
+    border: 1px solid #ddd;
+}
+
+.number {
+    width: 50px;
+}
+
+.count button {
+    color: rgb(48, 48, 48);
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 0.5px solid #ddd;
+    width: 30px;
+    height: 45px;
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+.count button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.product-right_bot {
+    margin-top: -130px;
+    z-index: 100;
+}
+
+.addCart {
+    display: flex;
+    margin-top: 20px;
+}
+
+.addCart-right {
+    margin-left: 30px;
+    margin-right: 20px;
+    /* update từ chỗ này */
+    display: flex;
+    align-items: center;
+}
+
+.value input{
+    padding: 7px 0px;
+    outline: none;
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 30px;
+    width: 40px;
+}
+
+.add input{
+    cursor: pointer;
+    color: whitesmoke;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 8px 20px;
+    background-color: black;
+    border: 2px solid black;
+    margin-left: 30px;
+}
+
+/* cho tới hết chỗ này */
+
+.addCart-left {
+    margin-right: 30px;
+    margin-left: 20px;
+}
+
+/* .addCart-left button {
+    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
+    width: 220px;
+    height: 45px;
+    background-color: black;
+    border: none;
+    color: whitesmoke;
+} */
+
+.bar {
+    margin-top: 25px;
+    height: 1px;
+    background-color: rgb(153, 153, 153);
+}
+
+.ship {
+    margin-top: 20px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.ship button, .ship p {
+    cursor: pointer;
+}
+
+.ship button {
+    font-size: 18px; 
+    border-radius: 5px;
+    padding: 4px 10px;
+    border: none;
+    background-color: #eff0f5;
+}
+
+.ship p {
+    font-size: 14px;
+}
+
+/* =============== INFOR MENU ================== */
+
+.infor-menu {
+    margin-top: 40px;
+}
+
+.infor-menu a {
+    padding-left: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+}
+
+/* =============== DESCRIPTION ================= */
+
+.description {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title-desc p {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 30px 0px;
+}
+
+.cnt-desc p, .cnt-desc li, .video-demo p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 15px 0px;
+}
+
+.description ul {
+    margin-left: 20px;
+    line-height: 1.5;
+}
+
+/* =============== IMAGE ================= */
+
+.img-description {
+    display: grid;
+    margin: 20px 0px;
+}
+
+.img-description img {
+    display: block;
+    margin: 0 auto;
+    
+}
+
+/* ===========  SPECFICATION ============= */
+
+.table {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    margin-top: 25px;
+}
+
+.table1 {
+    margin-right: 40px;
+}
+
+.table1, .table2 {
+    width: 45%;
+}
+
+.item-table {
+    border-top: 1px solid #c8c8c8;
+    display: flex;
+    padding: 15px 0px;
+}
+
+.item-table_title {
+    width: 150px;
+    margin-right: 15%;
+}
+
+/* =============== COMMENT ============== */
+
+.star {
+    display: flex;
+    margin: 20px 0px;
+}
+
+.item-star {
+    color: #D3D3D3;
+    cursor: pointer;
+    padding: 0px 10px;
+    border-right: 1px solid #ddd;
+}
+
+.checked {
+    color: #ddd;
+}
+
+.item-star:hover i {
+    color: orange;
+}
+
+textarea {
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+textarea:focus {
+    box-shadow: 0 0 5px 2px #D3D3D3;
+}
+
+.comment button {
+    cursor: pointer;
+    padding: 5px 20px;
+    font-size: 20px;
+    background-color: black;
+    border: none;
+    color: whitesmoke;
+}
+
+/* ========== RECOMMENT ============= */
+
+.img-recmt {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.img-recmt img{
+    width: 281px;
+    height: 500px;
+    margin-top: 50px;
+}
+
+.name-recmt{
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.name-recmt button{
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 5px 20px;
+    background-color: inherit;
+    border: 1px solid black;
+}
+
+.name-recmt button:hover{
+    border: 1px solid rgb(117, 27, 4);
+}
+
+.viewMore{
+    display: flex;
+    justify-content: center;
+}
+
+.viewMore button{
+    cursor: pointer;
+    padding: 5px 30px;
+    color: whitesmoke;
+    background-color: rgb(153, 35, 5);
+    border: none;
+    margin: 30px 0px 50px 0px;
+    font-size: 20px;
+}

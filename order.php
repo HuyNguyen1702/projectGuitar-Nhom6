@@ -10,7 +10,7 @@
     </title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/formLogin.css">
-    <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/newProduct1.css">
     <link rel="stylesheet" href="./css/product-category.css">
     <link rel="stylesheet" href="./css/register.css">
     <link rel="stylesheet" href="./css/order.css">
@@ -29,6 +29,7 @@
     <?php 
     session_start();
     require('./db.php'); 
+    include('cate.php');
     ?>
     <?php 
      if(empty($_SESSION['current_user'])){
@@ -37,85 +38,100 @@
         header('Location: ./register.php');
         } else {
         $currentUser = $_SESSION['current_user'];
+        $user_id=$currentUser['user_id'];
     ?>
     <?php 
-         
         require('./db.php');
         //session_start();
+        $_SESSION["order"]=array();
         if(isset($_GET['action']))
         {
             switch($_GET['action'])
             {
-                case"submit":
-                    
+                case"order": 
+                    $products = mysqli_query($connect,"SELECT * FROM `tbl_product` WHERE `pro_id` IN (".implode(",",array_keys($_SESSION["cart"])).")");
+                    $total=0;
+                    $orderProduct = array();
+                    while ($row = mysqli_fetch_array($products))
+                    {
+                        $orderProduct[] = $row;
+                        $total += $row['pro_price']* $_SESSION["cart"][$row['pro_id']];
+                        
+                    }
+                    $insert =  mysqli_query($connect,"INSERT INTO `tbl_cartmain` (`order_id`,`user_id`, `order_name`, `order_address`, `order_address2`, `order_address3`, `order_address4`, `order_phone`, `order_email`, `order_note`, `Total`)
+                     VALUES (NULL, '".$user_id."','".$_POST['name']."', '".$_POST['add1']."', '".$_POST['add2']."', '".$_POST['add3']."', '".$_POST['add4']."', '".$_POST['phone']."', '".$_POST['email']."', '".$_POST['note']."', '".$total."');");
+                    $orderID=$connect->insert_id;
+                    $insertString="";
+                    foreach($orderProduct as $key => $product)
+                    {
+                        $insertString .= "(NULL, '".$orderID."','".$user_id."', '".$product['pro_id']."', '".$_SESSION["cart"][$product['pro_id']]."', '".$product['pro_price']."','".$_SESSION["cart"][$product['pro_id']]*$product['pro_price']."')";
+                        if($key!=count($orderProduct)-1)
+                        {
+                            $insertString .= ",";
+                        }
+                    }
+                    $insert =  mysqli_query($connect,"INSERT INTO `tbl_cartinf` (`cart_id`, `order_id`, `user_id`,`pro_id`, `cart_soluong`, `cart_price`,`cart_total`) VALUES ".$insertString.";");
+                    //$test = mysqli_query($connect,"SELECT tbl_cartmain.order_id FROM tbl_cartmain ORDER BY order_id DESC LIMIT 1");
+                    header('location:cart_report.php');
+                    break;
             }
         }
     ?>
         <header>
         <div class="header-left">
-            <a href="index.php"><img src="./img/Logo-White-e1543120531648.png" alt=""></a>
+        <a href="index.php"><img src="./img/Logo-White-e1543120531648.png" alt=""></a>
             <div class="sp">
                 <div class="dropdown">
-                    <a href="./product-category.html" style="text-decoration: none; color: whitesmoke;">Đàn Guitar</a>
+                    <a href="./product-category.php" style="text-decoration: none; color: whitesmoke;">Đàn Guitar</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
-                        <a href="#">Đàn Guitar Acoustic</a>
-                        <a href="#">Đàn Guitar Nước Ngoài</a>
-                        <a href="#">Đàn Guitar Classic</a>
-                        <a href="#">Đàn Guitar Có EQ</a>
+                        <?php while ($row = mysqli_fetch_array($cate1)) : ?>
+                            <a href='./product-category.php?=<?= $row['cate_id'] ?>'><?php echo $row['cate_name'] ?></a>
+                        <?php endwhile; ?>
+                    </div>
+                </div>
+            </div>
+            <div class="sp">
+                <div class="dropdown" >
+                    <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;"> Nhạc Cụ Khác</a>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
+                        <?php while ($row = mysqli_fetch_array($cate2)) : ?>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
+                        <?php endwhile; ?>
                     </div>
                 </div>
             </div>
             <div class="sp">
                 <div class="dropdown">
-                    Nhạc Cụ Khác
+                <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;">Phụ Kiện Guitar</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
-                        <a href="#">Đàn Ukulele</a>
-                        <a href="#">Đàn Kalimba</a>
-                        <a href="#">Kèn Harmonica</a>
-                        <a href="#">Rollup Piano</a>
+                        <?php while ($row = mysqli_fetch_array($cate3)) : ?>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
+                        <?php endwhile; ?>
                     </div>
                 </div>
             </div>
             <div class="sp">
                 <div class="dropdown">
-                    Phụ Kiện Guitar
+                <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;">Tự học Guitar</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
-                        <a href="#">Capo Guitar</a>
-                        <a href="#">Dây Đàn Guitar</a>
-                        <a href="#">Trang Sức Guitar</a>
-                        <a href="#">Dụng Cụ Trang Trí Guitar</a>
-                        <a href="#">Khóa Đàn Guitar</a>
-                        <a href="#">Guitar Pickups, Equalizer (EQ)</a>
-                        <a href="#">Phím Gảy Guitar (Pick/Pickholder)</a>
-                        <a href="#">Dây Đeo Guitar / Ukulele</a>
-                        <a href="#">Phụ Kiện Dành Cho Người Mới Tập</a>
+                        <?php while ($row = mysqli_fetch_array($cate4)) : ?>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
+                        <?php endwhile; ?>
                     </div>
                 </div>
             </div>
             <div class="sp">
                 <div class="dropdown">
-                    Tự Học Guitar
+                <a href="./Error404.php" style="text-decoration: none; color: whitesmoke;">Hỗ Trợ Khách Hàng</a>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
-                        <a href="#">Học Đàn Guitar Cơ Bản</a>
-                        <a href="#">Học Đàn Guitar Nâng Cao </a>
-                        <a href="#">Hợp Âm Guitar</a>
-                        <a href="#">Học Đàn Ukelele</a>
-                    </div>
-                </div>
-            </div>
-            <div class="sp">
-                <div class="dropdown">
-                    Hỗ Trợ Khách Hàng
-                    <i class="fas fa-chevron-down"></i>
-                    <div class="dropdown-content" style="text-transform: uppercase; min-width: 100px; font-size: 14px;">
-                        <a href="#">Hướng Dẫn Mua Đàn Guitar <br> Cho Người Mới Tập Chơi</a>
-                        <a href="#">Hướng Dẫn Đặt Hàng Online</a>
-                        <a href="#">Câu Hỏi Thường Gặp</a>
-                        <a href="#">Hướng Dẫn Mua Đàn Ukulele <br> Cho Người Mới Tập Chơi</a>
+                        <?php while ($row = mysqli_fetch_array($cate5)) : ?>
+                            <a href='./Error404.php'><?php echo $row['cate_name'] ?></a>
+                        <?php endwhile; ?>
                     </div>
                 </div>
             </div>
@@ -152,7 +168,6 @@
                 <div class="address">
                     <h3 style="text-align: center;">THANH TOÁN</h3>
                     <h1 style="text-align: center;">ĐỊA CHỈ NHẬN HÀNG</h1>
-
                     <div class="address-item">
                         <div class="add-item_lable">
                             <label for="psw"><b>Tỉnh/Thành phố *</b></label>
@@ -224,13 +239,22 @@
                             <label ><b>Ghi chú khi giao hàng (tùy chọn)</b></label>
                         </div>
                         <div class="add-item_sel">
-                            <textarea name="" id="" placeholder="Ghi chú của bạn dành cho nhân viên giao hàng" style="width: 400px; height: 100px;"> </textarea>
+                            <textarea name="note" id="" placeholder="Ghi chú của bạn dành cho nhân viên giao hàng" style="width: 400px; height: 100px;"> </textarea>
                         </div>
                     </div>
                 </div>
+                <?php 
+                    $test = mysqli_query($connect,"SELECT tbl_cartmain.order_id FROM tbl_cartmain ORDER BY order_id DESC LIMIT 1");
+                    while($row = mysqli_fetch_array($test)) :
+                ?>
                 <div class="nextStep">
-                    <input type="submit" name="finish" value="Hoàn tất"> </input>
+                    <!--  <a href="cart_report.php"><button type="submit" name="finish" value="Hoàn Tất"></button> </a> -->
+                    <!-- <a type="submit" href="cart_report.php">Hoàn Tất</a> -->
+                    <input type="submit" name="finish" value="Hoàn Tất"> </input>
                 </div>
+                <?php
+                    endwhile; 
+                ?>
             </div>
         </div>
         </form>

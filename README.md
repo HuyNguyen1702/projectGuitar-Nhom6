@@ -46,4 +46,5 @@ Có thể sử dụng một số công cụ, trang web deloy như :
 
 Cách cài đặt bạn có thể tham khảo một số hướng dẫn sau:
 https://viblo.asia/p/trien-khai-web-tren-heroku-djeZ1RWglWz
+
 https://codelearn.io/sharing/deploy-web-len-hosting-tao-web-tin-tuc-bang-php-phan-cuoi

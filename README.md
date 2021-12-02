@@ -1,5 +1,5 @@
 ### Overview
-- GuitarStation là trang web bán nhạc cụ đàn guitar sử dụng các ngôn ngữ lập trình như HTML,CSS,JS,PHP để xây dựng nên.
+- GuitarStation là trang web bán nhạc cụ đàn guitar sử dụng các ngôn ngữ lập trình như HTML,CSS,JS,PHP.
 - GitHub: 
 ```bash
  https://github.com/HwieNg/projectGuitar-Nhom6

@@ -51,8 +51,39 @@ https://viblo.asia/p/trien-khai-web-tren-heroku-djeZ1RWglWz
 https://codelearn.io/sharing/deploy-web-len-hosting-tao-web-tin-tuc-bang-php-phan-cuoi
 
 ### Demo
+- Giao diện trang bán hàng
 
-![giaodienUser](https://user-images.githubusercontent.com/72747007/144338129-08b50169-391b-4c12-b679-ffa766b3bcfb.png)
+![giaodienUser](https://user-images.githubusercontent.com/72747007/144338307-4cae034a-b502-4c50-86a8-9316c61029a4.png)
+
+- Màn hình đăng nhập
+
+![login](https://user-images.githubusercontent.com/72747007/144338433-9b574868-c3bd-4239-a468-1e23c5c3fd99.png)
+
+- Trang sản phẩm
+
+![product](https://user-images.githubusercontent.com/72747007/144338593-3be471ae-4ae4-4f6d-bae3-c1322512b5ae.png)
+
+- Trang chi tiết sản phẩm
+
+![detail](https://user-images.githubusercontent.com/72747007/144338698-654b5630-dcb6-412b-97e8-0860e95cb567.png)
+
+- Giỏ hàng
+
+![cart](https://user-images.githubusercontent.com/72747007/144338787-9fcc1814-17b2-4a92-a4f1-a7554f8ea5af.png)
+
+- Đặt hàng
+
+![order](https://user-images.githubusercontent.com/72747007/144339346-246fd355-f271-495e-a774-ba27044220c2.png)
+
+- Hóa đơn
+![report](https://user-images.githubusercontent.com/72747007/144339435-224af788-c698-4c97-999d-0d5dcf4782e6.png)
+
+
+
+
+
+
+
 
 
 

@@ -13,21 +13,28 @@ https://guitarstationnhom6.000webhostapp.com/
 
 1) Cài đặt trên môi trường localhost
 
-B1: Cài đặt một số công cụ giả lập server miễn phí như : XAMPP, WAMP...
+Bước 1: Cài đặt một số công cụ giả lập server miễn phí như : XAMPP, WAMP...
 
-B2: Sau khi cài đặt xong XAMPP, vào thư mục và tạo thư mục guitarStation
+Bước 2: Sau khi cài đặt xong XAMPP, vào thư mục và tạo thư mục guitarStation
 ```bash
 C:\xampp\htdocs\guitarStation
 ```
-B3: Vào thư mục mình vừa tạo,clone project guitar:
+Bước 3: Vào thư mục mình vừa tạo,clone project guitar:
 ```bash
 $ git clone git@github.com:HwieNg/projectGuitar-Nhom6.git
 ```
-B4: Sau khi clone project thành công, bật 2 mục sau trong XAMPP:
+Bước 4: Sau khi clone project thành công, bật 2 mục sau trong XAMPP:
 * Apache
 * MySQL
 
-B5: Vào trình duyệt của bạn và vào đường link:
+Bước 5: Vào trang 
+```bash
+http://localhost/phpmyadmin/
+```
+* Tạo 1 cơ sở dữ liệu có tên: qlchguitar
+* Import file: qlchguitar.sql 
+
+Bước 6: Vào trình duyệt của bạn và vào đường link:
 ```bash
 http://localhost/projectGuitar/
 ```
@@ -38,7 +45,5 @@ Có thể sử dụng một số công cụ, trang web deloy như :
 * webhostapp
 
 Cách cài đặt bạn có thể tham khảo một số hướng dẫn sau:
-
 https://viblo.asia/p/trien-khai-web-tren-heroku-djeZ1RWglWz
-
 https://codelearn.io/sharing/deploy-web-len-hosting-tao-web-tin-tuc-bang-php-phan-cuoi

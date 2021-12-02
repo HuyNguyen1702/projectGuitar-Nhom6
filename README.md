@@ -76,9 +76,8 @@ https://codelearn.io/sharing/deploy-web-len-hosting-tao-web-tin-tuc-bang-php-pha
 ![order](https://user-images.githubusercontent.com/72747007/144339346-246fd355-f271-495e-a774-ba27044220c2.png)
 
 - Hóa đơn
-![report](https://user-images.githubusercontent.com/72747007/144339435-224af788-c698-4c97-999d-0d5dcf4782e6.png)
 
-
+![report](https://user-images.githubusercontent.com/72747007/144339576-58e435b5-3ca5-4a70-9bb2-baf9ba0e52eb.png)
 
 
 

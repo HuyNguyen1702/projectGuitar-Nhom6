@@ -98,5 +98,6 @@ https://codelearn.io/sharing/deploy-web-len-hosting-tao-web-tin-tuc-bang-php-pha
 ![productEdit](https://user-images.githubusercontent.com/72747007/144340476-b7c9e032-0d17-419a-9606-f2e948f59ea0.png)
 
 
-
-
+### Overvall
+- Trang web còn thiếu một số chức năng tự động cập nhật số lượng sản phẩm sau khi đặt hàng thành công
+- Giao diện còn một số lỗi

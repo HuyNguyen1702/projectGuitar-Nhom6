@@ -49,3 +49,10 @@ Cách cài đặt bạn có thể tham khảo một số hướng dẫn sau:
 https://viblo.asia/p/trien-khai-web-tren-heroku-djeZ1RWglWz
 
 https://codelearn.io/sharing/deploy-web-len-hosting-tao-web-tin-tuc-bang-php-phan-cuoi
+
+### Demo
+
+![giaodienUser](https://user-images.githubusercontent.com/72747007/144338129-08b50169-391b-4c12-b679-ffa766b3bcfb.png)
+
+
+

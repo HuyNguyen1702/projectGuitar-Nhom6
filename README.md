@@ -12,7 +12,9 @@ https://guitarstationnhom6.000webhostapp.com/
 ### Install
 
 1) Cài đặt trên môi trường localhost
+
 B1: Cài đặt một số công cụ giả lập server miễn phí như : XAMPP, WAMP...
+
 B2: Sau khi cài đặt xong XAMPP, vào thư mục và tạo thư mục guitarStation
 ```bash
 C:\xampp\htdocs\guitarStation
